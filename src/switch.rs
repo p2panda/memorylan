@@ -9,6 +9,7 @@ use crate::hash::{Digest, hash_digest};
 use crate::ring::{PushOutcome, RingSet, RingSetMode};
 
 #[derive(Clone, Debug, PartialEq, Eq)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub enum Message<ID, M> {
     MemoryPage(M),
     RepairRequest(ID, Bitfield),
